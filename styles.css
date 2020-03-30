@@ -1,0 +1,37 @@
+#buttonContainer {
+    width: 200px;
+}
+
+#calculator {
+    width: 350px;
+    height: 600px;
+    background-color: grey;
+}
+
+body {
+    margin: 20 auto;
+}
+
+#history {
+    text-align: right;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+#current {
+    text-align: right;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; /* This ensures that everything is in the box e.g. border radius, margin etc. */
+}
+
+#calculator {
+    display: grid; 
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 150px); /* This sets the columns to repeat 4 times at 150px each*/
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px); /* The minmax sets it so that it can be adjusted if the number input is longer than one line*/ 
+} 
