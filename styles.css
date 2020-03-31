@@ -3,9 +3,9 @@
 }
 
 #calculator {
-    width: 350px;
+    /* width: 500px;
     height: 600px;
-    background-color: grey;
+    background-color: grey; */
 }
 
 body {
@@ -16,22 +16,66 @@ body {
     text-align: right;
     margin: 5px auto;
     padding: 10px;
+    color: white;
 }
 
 #current {
     text-align: right;
     margin: 5px auto;
     padding: 10px;
+    color: white;
+    font-size: 20px;
 }
 
-*, *::before, *::after {
+*, *::before, *::after { /* This selects everything */
     box-sizing: border-box; /* This ensures that everything is in the box e.g. border radius, margin etc. */
 }
 
 #calculator {
     display: grid; 
     justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(4, 150px); /* This sets the columns to repeat 4 times at 150px each*/
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px); /* The minmax sets it so that it can be adjusted if the number input is longer than one line*/ 
+    align-content: center;
+    margin: 5px;
+    padding: 5px;
+    grid-template-columns: repeat(4, 100px); /* This sets the columns to repeat 4 times at 150px each*/
+    grid-template-rows: minmax(80px, auto) repeat(5, 100px); /* The minmax sets it so that it can be adjusted if the number input is longer than one line*/ 
 } 
+
+#calculator > button { /* This selects all the button elements that are in the calculator div*/
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: turquoise;
+    outline: none;
+    margin: 5px;
+    font-size: 20px;
+    width: auto;
+}
+
+#calculator > button:hover {
+    background-color: white;
+}
+
+.spanTwo {
+    grid-column: span 2; /* This makes the column span two column widths */
+}
+
+#output {
+    grid-column: 1 / -1; /* This will make the output div span from the start to finish of the grid*/ 
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: black;
+}
+
+#history {
+    font-size: 15px;
+    color: whitesmoke;
+}
+
+#current {
+    font-size: 35px;
+    color: white;
+}
