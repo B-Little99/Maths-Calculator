@@ -1,6 +1,5 @@
 // let answer; 
 let storedValue;
-
 let operators = document.getElementsByClassName("operator");
 let numbers = document.getElementsByClassName("number");
 let equalsButton = document.getElementById("equals");
@@ -39,76 +38,45 @@ allClearButtons.addEventListener("click", function clear(){
 })
 
 /* This function deletes the last number in the display using the slice method on the string.*/
-function delBtn() {
+function delBtn() { 
     currentDisplay.innerHTML = currentDisplay.innerHTML.slice(0, -1);
-    return currentDisplay;
-}
+    return currentDisplay; 
+} 
 
 /* This function allows the user to include a decimal place, but only one. */
-
 function decimalPlace() { 
-    let n = currentDisplay.indexOf(".");
-    alert(n);
-    if (n == -1) {
-        currentDisplay.innerHTML += decimalButton.innerHTML;
-    return currentDisplay;
+    let n = currentDisplay.innerHTML.indexOf(decimalButton); 
+    if (n == -1) { 
+        currentDisplay.innerHTML += decimalButton; 
+    return currentDisplay; 
     }
-
 }
 
 /* Equals button code */
 
 function equalsOperation() {
-
+    historyDisplay.innerHTML = currentDisplay.innerHTML;
+    let replaceDivSigns = historyDisplay.innerHTML.replace("÷", "/");
+    let replaceMulSigns = replaceDivSigns.replace("x", "*");
+    let answer = eval(replaceMulSigns);
+    currentDisplay.innerHTML = answer;
 }
 
-operators.addEventListener("click", function determineOperator(n){
-    let newOperator = n.innerHTML;
-    switch(newOperator) {
-        case "x":
-            storedOperator = "*"
-            multiply(); 
-            break;
-        case "÷":
-            storedOperator = "/"
-            divide() 
-            break;
-        case "-":
-            storedOperator = "-"
-            subtract() 
-            break;
-        case "+":
-            storedOperator = "+"
-            add();
-            break;  
-    }
-})
-
-
 /* These functions display the operator icon */
-
 function displayAdd() {
-    storedOperator = plus;
-    historyDisplay.innerHTML = currentDisplay.innerHTML + plus;
-    currentDisplay.innerHTML = '';
+    currentDisplay.innerHTML = currentDisplay.innerHTML + plus;
 }
 
 function displayDivide() {
-    storedOperator = divideSign;
-    historyDisplay.innerHTML = currentDisplay.innerHTML + divi;
-    currentDisplay.innerHTML = '';
+    currentDisplay.innerHTML = currentDisplay.innerHTML + divideSign;
 }
 
 function displayMinus() {
-    storedOperator = minus;
-    historyDisplay.innerHTML = currentDisplay.innerHTML;
-    currentDisplay.innerHTML = '';
+    currentDisplay.innerHTML = currentDisplay.innerHTML + minus;
 }
 
 function displayMultiply() {
-    storedOperator = times;
-    historyDisplay.innerHTML = currentDisplay.innerHTML;
-    currentDisplay.innerHTML = '';
+    currentDisplay.innerHTML = currentDisplay.innerHTML + times;
 }
 
 /* These functions display the button number that is clicked on in the display bar */
@@ -160,28 +128,4 @@ function calc9() {
 function calc0() {
     currentDisplay.innerHTML += zero;
     return currentDisplay;
-}
-
-/* Operator functionality */
-function add() {
-    answer = historyDisplay + storedOperator + currentDisplay;
-    let solution = eval(answer); 
-    historyDisplay = answer;
-    currentDisplay = solution;
-
-}
-
-function multiply() {
-    answer = a * b;
-    return answer;
-}
-
-function subtract() {
-    answer = a - b;
-    return answer;
-}
-
-function divide() {
-    answer = a / b;
-    return answer;
 }
