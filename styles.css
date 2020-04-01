@@ -1,11 +1,11 @@
-#buttonContainer {
-    width: 200px;
+header {
+    font-size: 45px;
+    text-align: center;
+    margin: 35px auto;
 }
 
-#calculator {
-    /* width: 500px;
-    height: 600px;
-    background-color: grey; */
+#buttonContainer {
+    width: 200px;
 }
 
 body {
@@ -13,22 +13,25 @@ body {
 }
 
 #history {
-    text-align: right;
     margin: 5px auto;
     padding: 10px;
     color: white;
+    font-size: 17px;
+    border-radius: 25px;
 }
 
 #current {
-    text-align: right;
-    margin: 5px auto;
+    margin: 2px auto;
     padding: 10px;
     color: white;
-    font-size: 20px;
+    font-size: 35px;
+    border-radius: 25px;
 }
 
 *, *::before, *::after { /* This selects everything */
     box-sizing: border-box; /* This ensures that everything is in the box e.g. border radius, margin etc. */
+    font-family: 'Muli', sans-serif;
+
 }
 
 #calculator {
@@ -46,13 +49,60 @@ body {
     border: 1px solid white;
     background-color: turquoise;
     outline: none;
-    margin: 5px;
-    font-size: 20px;
+    margin: 3px;
+    font-size: 25px;
     width: auto;
+    border-radius: 25px;
 }
 
 #calculator > button:hover {
     background-color: white;
+    border: 3px solid turquoise;
+    transform: scale(1.03);
+}
+
+#calculator > button:active {
+    background-color: turquoise;
+    border: 3px solid turquoise;
+    transform: scale(1.03);
+    color: white;
+}
+
+#calculator > .topTwo {
+    background-color: #1FB7A7;
+}
+
+#calculator > .topTwo:hover {
+    background-color: white;
+    border: 3px solid #1FB7A7;
+    transform: scale(1.03);
+}
+
+#calculator > .topTwo:active {
+    background-color: #1FB7A7;
+    border: 3px solid #1FB7A7;
+    transform: scale(1.03);
+    color: white;
+}
+
+
+#calculator > .operator {
+    background-color: #3652DC;
+    color: white;
+}
+
+#calculator > .operator:hover {
+    background-color: white;
+    border: 3px solid #3652DC;
+    color: black;
+    transform: scale(1.03);
+}
+
+#calculator > .operator:active {
+    background-color: #3652DC;
+    border: 3px solid #3652DC;
+    transform: scale(1.03);
+    color: white;
 }
 
 .spanTwo {
@@ -62,20 +112,13 @@ body {
 #output {
     grid-column: 1 / -1; /* This will make the output div span from the start to finish of the grid*/ 
     display: flex; 
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
     flex-direction: column;
     word-wrap: break-word;
     word-break: break-all;
-    background-color: black;
-}
-
-#history {
-    font-size: 15px;
-    color: whitesmoke;
-}
-
-#current {
-    font-size: 35px;
-    color: white;
+    background-color: #302F2F;
+    border-radius: 25px;
+    margin: 5px;
+    height: 150px;
 }

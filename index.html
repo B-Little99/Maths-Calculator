@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <title>Maths Calculator</title>
         <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>Maths Calculator</header>
@@ -11,8 +12,8 @@
                     <p id = "history"></p>
                     <p id = "current"></p>
                 </div>
-                    <button id = "allClear" class = "spanTwo" >AC</button>
-                    <button id = "delete" onclick="delBtn()">DEL</button>
+                    <button id = "allClear" class = "spanTwo topTwo" >AC</button>
+                    <button id = "delete" onclick="delBtn()" class = "topTwo">DEL</button>
                     <button class = "operator" id = "divide" onclick="displayDivide()">÷</button>
                     <button id = "btn-7" class = "number" onclick="calc7()">7</button>
                     <button id = "btn-8" class = "number" onclick="calc8()">8</button>
@@ -26,9 +27,9 @@
                     <button id = "btn-2" class = "number" onclick="calc2()">2</button>
                     <button id = "btn-1" class = "number" onclick="calc1()">1</button>
                     <button class = "operator" id = "add" onclick="displayAdd()">+</button>
-                    <button  id = "btn-0" class = "number" onclick="calc0()">0</button>
+                    <button class = "spanTwo" id = "btn-0" class = "number" onclick="calc0()">0</button>
                     <button id = "decimal" onclick="decimalPlace()">.</button>
-                    <button class = "spanTwo" id = "equals" class = "operator" onclick="equalsOperation()">=</button>
+                    <button id = "equals" class = "operator" onclick="equalsOperation()">=</button>
             </div>
 
         <script src="scripts.js"></script>
