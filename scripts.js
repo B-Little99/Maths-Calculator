@@ -1,5 +1,3 @@
-// let answer; 
-let storedValue;
 let operators = document.getElementsByClassName("operator");
 let numbers = document.getElementsByClassName("number");
 let equalsButton = document.getElementById("equals");
@@ -37,12 +35,6 @@ allClearButtons.addEventListener("click", function clear(){
     location.reload(true); 
 })
 
-// document.getElementById("operators").addEventListener("click", function disableBtn(n) {
-//     if (n === "÷"){
-
-//     }
-// })
-
 /* This function deletes the last number in the display using the slice method on the string.*/
 function delBtn() { 
     currentDisplay.innerHTML = currentDisplay.innerHTML.slice(0, -1);
@@ -51,7 +43,7 @@ function delBtn() {
 
 /* This function allows the user to include a decimal place, but only one. */
 function decimalPlace() { 
-    let n = currentDisplay.innerHTML.indexOf(decimalButton); 
+    let n = currentDisplay.innerHTML.indexOf(decimalButton);
     if (n == -1) { 
         currentDisplay.innerHTML += decimalButton; 
     return currentDisplay; 
@@ -59,34 +51,24 @@ function decimalPlace() {
 }
 
 /* Equals button code */
-
 function equalsOperation() {
     historyDisplay.innerHTML = currentDisplay.innerHTML;
     let newString = historyDisplay.innerHTML;
     let replaceDivSigns = newString.replace("÷", "/");
     let replaceMulSigns = replaceDivSigns.replace("x", "*");
-    let answer = eval(replaceMulSigns);
+    let answer;
+    try { // I used the try ... catch statement due to an error where the equation if entered wrong was being interpreted as a regular expression, so by using try ... catch I can output the Syntax error statement. 
+        answer = eval(replaceMulSigns);
+    } 
+    catch (e) {
+        answer = "Syntax Error: Please review input.";
+    }
     if (historyDisplay.innerHTML.startsWith("x") || historyDisplay.innerHTML.startsWith("÷")) {
-        currentDisplay.innerHTML = "Syntax Error: Please review input."
-    } else if (historyDisplay.innerHTML.endsWith("x") || historyDisplay.innerHTML.endsWith("÷") || historyDisplay.innerHTML.endsWith("+") || historyDisplay.innerHTML.endsWith("-")) {
-        currentDisplay.innerHTML = "Syntax Error: Please review input."
-    } else if (historyDisplay.innerHTML.search("x÷") > 0 || historyDisplay.innerHTML.search("÷x") > 0) {
-        currentDisplay.innerHTML = "Syntax Error: Please review input."
+        currentDisplay.innerHTML = "Syntax Error: Please review input.";
     } else {
     currentDisplay.innerHTML = answer;
     }
 }
-
-// function checkString(n) {
-//     let n = n.length;
-//     for (i = 0; i < n; i++) {
-//         if (n[i] === n[i+1]) {
-//             return true;
-//         }
-//     }
-// }
-
-
 
 /* These functions display the operator icon */
 function displayAdd() {
