@@ -1,0 +1,1 @@
+This projects is intended to provide the user with a calculator to perform basic tasks and acts as a good way for me to test and use my JavaScript knowledge.

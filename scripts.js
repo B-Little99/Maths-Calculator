@@ -37,6 +37,12 @@ allClearButtons.addEventListener("click", function clear(){
     location.reload(true); 
 })
 
+// document.getElementById("operators").addEventListener("click", function disableBtn(n) {
+//     if (n === "÷"){
+
+//     }
+// })
+
 /* This function deletes the last number in the display using the slice method on the string.*/
 function delBtn() { 
     currentDisplay.innerHTML = currentDisplay.innerHTML.slice(0, -1);
@@ -56,11 +62,31 @@ function decimalPlace() {
 
 function equalsOperation() {
     historyDisplay.innerHTML = currentDisplay.innerHTML;
-    let replaceDivSigns = historyDisplay.innerHTML.replace("÷", "/");
+    let newString = historyDisplay.innerHTML;
+    let replaceDivSigns = newString.replace("÷", "/");
     let replaceMulSigns = replaceDivSigns.replace("x", "*");
     let answer = eval(replaceMulSigns);
+    if (historyDisplay.innerHTML.startsWith("x") || historyDisplay.innerHTML.startsWith("÷")) {
+        currentDisplay.innerHTML = "Syntax Error: Please review input."
+    } else if (historyDisplay.innerHTML.endsWith("x") || historyDisplay.innerHTML.endsWith("÷") || historyDisplay.innerHTML.endsWith("+") || historyDisplay.innerHTML.endsWith("-")) {
+        currentDisplay.innerHTML = "Syntax Error: Please review input."
+    } else if (historyDisplay.innerHTML.search("x÷") > 0 || historyDisplay.innerHTML.search("÷x") > 0) {
+        currentDisplay.innerHTML = "Syntax Error: Please review input."
+    } else {
     currentDisplay.innerHTML = answer;
+    }
 }
+
+// function checkString(n) {
+//     let n = n.length;
+//     for (i = 0; i < n; i++) {
+//         if (n[i] === n[i+1]) {
+//             return true;
+//         }
+//     }
+// }
+
+
 
 /* These functions display the operator icon */
 function displayAdd() {

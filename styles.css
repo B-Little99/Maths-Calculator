@@ -24,7 +24,7 @@ body {
     margin: 2px auto;
     padding: 10px;
     color: white;
-    font-size: 35px;
+    font-size: 30px;
     border-radius: 25px;
 }
 
@@ -116,9 +116,10 @@ body {
     align-items: flex-end;
     flex-direction: column;
     word-wrap: break-word;
-    word-break: break-all;
+    word-break: break-word;
     background-color: #302F2F;
     border-radius: 25px;
     margin: 5px;
+    padding: 12px;
     height: 150px;
 }
